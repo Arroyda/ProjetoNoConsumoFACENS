@@ -11,11 +11,19 @@
     background-color: red;
 
     & .container{
+        display: flex;
         background-color: green;
         width: 100%;
         margin-left: auto;
         margin-right: auto;
         padding-right: 1rem;
         padding-left: 1rem;
+    }
+
+    & .container img{
+        max-height: 5rem;
+        max-width: auto;
+        justify-content: center;
+        align-content: center;
     }
 }
