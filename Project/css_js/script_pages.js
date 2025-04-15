@@ -15,13 +15,13 @@ fetch('footer.html')
 fetch('calculator.html')
 .then(response => response.text())
 .then(data => {
-    document.getElementById('menuLat-container').innerHTML = data;
+    document.getElementById('calculadora-container').innerHTML = data;
 })
 .catch(error => console.error('Erro ao carregar o footer:', error));
 
 fetch('sobre.html')
 .then(response => response.text())
 .then(data => {
-    document.getElementById('menuLat-container').innerHTML = data;
+    document.getElementById('sobre-container').innerHTML = data;
 })
 .catch(error => console.error('Erro ao carregar o footer:', error));
