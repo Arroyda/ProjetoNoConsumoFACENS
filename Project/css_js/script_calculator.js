@@ -77,6 +77,15 @@ function calcular() {
         const elemento = document.getElementById(id);
         if (elemento) elemento.textContent = valor.toFixed(2);
     };
+    
+    // NOVO CÁLCULO: =MÁXIMO(12*D12*D13;N30-(M30*((D13+D14)/2)))
+    const parte1 = 12 * D12 * D13; // 12*D12*D13
+    const mediaTarifas = (D13 + D14) / 2; // (D13+D14)/2
+    const parte2 = somaResultadosN - (somaResultadosM * mediaTarifas); // N30-(M30*((D13+D14)/2))
+    const resultadoFinal = Math.max(parte1, parte2); // MÁXIMO entre as duas partes
+    const resultado3 = totalSemSistema - resultadoFinal;
+    const resultado4 = (somaConsumo / 12) - D12;
+    const resultado5 = (somaResultadosK / 12);
 
     // Exibir totais
     exibirResultado('resultado', totalSemSistema);
@@ -87,17 +96,12 @@ function calcular() {
     exibirResultado('totalM', somaResultadosM);
     exibirResultado('totalN', somaResultadosN);
 
-    // NOVO CÁLCULO: =MÁXIMO(12*D12*D13;N30-(M30*((D13+D14)/2)))
-    const parte1 = 12 * D12 * D13; // 12*D12*D13
-    const mediaTarifas = (D13 + D14) / 2; // (D13+D14)/2
-    const parte2 = somaResultadosN - (somaResultadosM * mediaTarifas); // N30-(M30*((D13+D14)/2))
-    const resultadoFinal = Math.max(parte1, parte2); // MÁXIMO entre as duas partes
-
-    const resultado3 = totalSemSistema - resultadoFinal;
     
     // Exibir o resultado final (assumindo que existe um elemento com id 'resultado-final')
     exibirResultado('resultado2', resultadoFinal);
     exibirResultado('resultado3', resultado3);
+    exibirResultado('resultado4', resultado4);
+    exibirResultado('resultado5', resultado5);
 
     console.log('Valores cálculo final:', {parte1, parte2, resultadoFinal});
     console.log('Cálculo concluído');
