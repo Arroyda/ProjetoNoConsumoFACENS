@@ -1,20 +1,204 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Sol</title>
-    <link rel="stylesheet" href="/Project/css_js/style.css"> 
-    <script src="/Project/css_js/script_pages.js" defer></script>
-</head>
-<body>
-    <!-- Puxa o Header pelo JavaScript -->
-    <div id="header-container"></div>
-    
-    <!-- Aqui deverá ser criado a calculadora -->
-    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Master Sol</title>
+        <link rel="stylesheet" href="/Project/css_js/style.css">
+        <link rel="stylesheet" href="/Project/css_js/styleArruda.css">
+        <script src="/Project/css_js/script_pages.js" defer></script>
+        <script src="/Project/css_js/script_calculator.js" defer></script>
+    </head>
+    <body>
+        <!-- Puxa o Header pelo JavaScript -->
+        <div id="header-container"></div>
 
-    <!-- Puxa o Footer pelo JavaScript -->
-    <div id="footer-container"></div>
-</body>
+        <!-- Aqui deverá ser criado a calculadora -->
+        <div class="container-dimensionamento">
+            <h1 id="main-title">1 - DIMENSIONAMENTO E ANÁLISE DE GERAÇÃO</h1>
+
+            <div class="potencia-sistema" id="potencia-sistema-section">
+                <h2>POTÊNCIA SISTEMA PROPOSTO:</h2>
+                <div class="potencia-input">
+                    <input type="number" id="potencia-sistema-input"
+                    value="10.0" step="0.1">
+                    <span>kWp</span>
+                    <button id="calculate-power-btn">Calcular Potência</button>
+                </div>
+            </div>
+            
+            <div id="premissas-uc-section">
+                <h2>PREMISSAS UC</h2>
+                <table id="premissas-table">
+                    <tr>
+                        <td>CLASSE DA UC:</td>
+                        <td><strong>BAIXA TENSÃO</strong></td>
+                    </tr>
+                    <tr>
+                        <td>CUSTO DE DISPONIBILIDADE (CD):</td>
+                        <td><input type="number" id="custo-disponibilidade-input" value="0"step="0.1"></td>
+                        </tr>
+                        <tr>
+                            <td>TARIFA DE TRIBUTAÇÃO &lt; 150kWh:</td>
+                            <td><input type="number" id="tarifa-tributacao-input" value="0" step="0.1"></td>
+                    </tr>
+                    <tr>
+                        <td>TARIFA DISTRIBUIDORA &gt; 150kWh:</td>
+                        <td><input type="number" id="tarifa-distribuidora-input" value="0" step="0.1"></td>
+                        </tr>
+                        <tr>
+                            <td>FATOR DE SIMULTANEIDADE:</td>
+                            <td><input type="number" id="fator-simultaneidade-input"value="0" step="0.1"></td>
+                            </tr>
+                        </table>
+            </div>
+            <div class="expenses-section" id="energy-expenses-section">
+                <h2>DESPESA COM ENERGIA ELÉTRICA (SUBLIMADES/CS) (1° ANO)</h2>
+                <table id="expenses-table">
+                    <tr>
+                        <td>SEM SISTEMA FOTOVOLTAICO (s/ impostos)</td>
+                        <td class="highlight" id="expense-without-system">R$ 0,00</td>
+                    </tr>
+                    <tr>
+                        <td>COM SISTEMA FOTOVOLTAICO (s/ impostos)</td>
+                        <td class="highlight" id="expense-with-system">R$ 0,00</td>
+                    </tr>
+                    <tr>
+                        <td>ECONOMIA</td>
+                        <td class="highlight" id="savings-amount">R$ 0,00</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div id="balanco-energetico-section">
+                <h2>BALANÇO ENERGÉTICO (kWh)</h2>
+                <table id="energy-balance-table">
+                    <thead>
+                        <tr>
+                            <th>MÊS</th>
+                            <th>CONSUMO [kWh]</th>
+                            <th>SIMULAÇÃO 1KWP [kWh]</th>
+                            <th>GERAÇÃO PVH² [KWh/mês]</th>
+                            <th>CONSUMO REDE [kWh]</th>
+                            <th>CRÉDITO [KWh/mês]</th>
+                            <th>VALOR FATURA (SEM CRÉDITO) [R$]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Janeiro</td>
+                            <td><input type="number" class="energy-input" id="jan-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="jan-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Fevereiro</td>
+                            <td><input type="number" class="energy-input" id="fev-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="fev-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Março</td>
+                            <td><input type="number" class="energy-input" id="mar-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="mar-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Abril</td>
+                            <td><input type="number" class="energy-input" id="abr-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="abr-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Maio</td>
+                            <td><input type="number" class="energy-input" id="mai-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="mai-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Junho</td>
+                            <td><input type="number" class="energy-input" id="jun-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="jun-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Julho</td>
+                            <td><input type="number" class="energy-input" id="jul-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="jul-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Agosto</td>
+                            <td><input type="number" class="energy-input" id="ago-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="ago-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Setembro</td>
+                            <td><input type="number" class="energy-input" id="set-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="set-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Outubro</td>
+                            <td><input type="number" class="energy-input" id="out-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="out-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Novembro</td>
+                            <td><input type="number" class="energy-input" id="nov-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="nov-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Dezembro</td>
+                            <td><input type="number" class="energy-input" id="dez-consumo" value="0" min="0" step="1"></td>
+                            <td><input type="number" class="energy-input" id="dez-simulacao" value="0" min="0" step="1"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- Puxa o Footer pelo JavaScript -->
+        <div id="footer-container"></div>
+    </body>
 </html>
