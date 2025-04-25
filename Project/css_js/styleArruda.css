@@ -1,4 +1,14 @@
-
+button {
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #2980b9;
+}
 
 .container-dimensionamento {
     max-width: 1000px;
@@ -30,17 +40,6 @@
         border: 1px solid #ddd;
         border-radius: 4px;
         width: 100px;
-    }
-    .potencia-input button {
-        padding: 8px 15px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    .potencia-input button:hover {
-        background-color: #2980b9;
     }
     table {
         width: 100%;
