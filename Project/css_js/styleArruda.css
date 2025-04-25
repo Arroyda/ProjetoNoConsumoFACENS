@@ -107,7 +107,6 @@
         background-color: #f8f9fa;
     }
 
-    /* -------------------------- */
 
     /* Estilo para a tabela */
     #energy-balance-table {
@@ -155,4 +154,8 @@
         background-color: #f9f9f9;
         font-weight: bold;
     }
+
+    input:focus::placeholder {
+        color: transparent;
+      }
 }
