@@ -7,6 +7,7 @@ function calcular() {
     let totalSemSistema = 0;
     let somaConsumo = 0;
     let somaSimulacao = 0;
+    let somaResultadosJ = 0;  // Variável para somar os resultados de J
 
     for (let i = 18; i <= 29; i++) {
         // Soma da coluna CONSUMO [kWh]
@@ -31,17 +32,23 @@ function calcular() {
             // Multiplicação de J18 até J29 por A1
             const resultadoMultiplicacao = simulacao * D8;
 
+            // Acumulando o resultado da multiplicação
+            somaResultadosJ += resultadoMultiplicacao;
+
             // Exibe o resultado da multiplicação na label correspondente
-            document.getElementById('resultado-J' + i).textContent = resultadoMultiplicacao.toLocaleString('pt-BR', {minimumFractionDigits: 2,maximumFractionDigits: 2});
+            document.getElementById('resultado-J' + i).textContent = resultadoMultiplicacao.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         }
     }
 
     // Exibe resultado SEM SISTEMA
-    document.getElementById('resultado').textContent = 'R$: ' + totalSemSistema.toLocaleString('pt-BR', {minimumFractionDigits: 2,maximumFractionDigits: 2});
+    document.getElementById('resultado').textContent = 'R$: ' + totalSemSistema.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 
     // Exibe total da coluna CONSUMO
-    document.getElementById('totalI').textContent = somaConsumo.toLocaleString('pt-BR', {minimumFractionDigits: 2,maximumFractionDigits: 2});
+    document.getElementById('totalI').textContent = somaConsumo.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 
     // Exibe total da coluna SIMULAÇÃO
-    document.getElementById('totalJ').textContent = somaSimulacao.toLocaleString('pt-BR', {minimumFractionDigits: 2,maximumFractionDigits: 2});
+    document.getElementById('totalJ').textContent = somaSimulacao.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+    // Exibe o total de todos os resultados de J na label
+    document.getElementById('totalK').textContent = somaResultadosJ.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
