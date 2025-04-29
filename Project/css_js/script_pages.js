@@ -12,18 +12,26 @@ fetch('footer.html')
 })
 .catch(error => console.error('Erro ao carregar o footer:', error));
 
-fetch('calculator.html')
+fetch('calculator_power.html')
 .then(response => response.text())
 .then(data => {
     document.getElementById('calculadora-container').innerHTML = data;
 })
 .catch(error => console.error('Erro ao carregar o footer:', error));
 
-fetch('sobre.html')
+fetch('calculator_savings.html')
+.then(response => response.text())
+.then(data => {
+    document.getElementById('calculadora2-container').innerHTML = data;
+})
+.catch(error => console.error('Erro ao carregar o footer:', error));
+
+fetch('about.html')
 .then(response => response.text())
 .then(data => {
     document.getElementById('sobre-container').innerHTML = data;
 })
 .catch(error => console.error('Erro ao carregar o footer:', error));
+
 
 

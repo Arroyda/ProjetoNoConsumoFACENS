@@ -32,7 +32,7 @@
     }
 
     & .container ul{
-        display: flex;
+        display:flex;
         list-style: none;
         margin-left: auto;
         padding: 0;        
@@ -42,8 +42,8 @@
         padding: 0 1.25rem;
         background-color: rgb(226, 226, 226);
         border: 1px rgb(0, 0, 0) solid;
-        height: 3rem;
-        width: 9rem;
+        height: auto;
+        width: 200px;
         margin: 1rem;
         border-radius: 15% 15% 15% 16% / 50% 50% 50% 50%;
         align-content: center;

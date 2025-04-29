@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Master Sol</title>
+        <title>Calcular Dimensionamento</title>
+        <link rel="icon" type="image/png" href="/Project/images/logo.png">
         <link rel="stylesheet" href="/Project/css_js/style.css">
         <link rel="stylesheet" href="/Project/css_js/styleArruda.css">
         <script src="/Project/css_js/script_pages.js" defer></script>
@@ -13,10 +14,11 @@
         <!-- Puxa o Header pelo JavaScript -->
         <div id="header-container"></div>
 
-        <!-- Aqui deverá ser criado a calculadora -->
+        <!-- Criação da Estrutura da Calculadora de Dimensionamento -->
         <div class="container-dimensionamento">
-            <h1 id="main-title">1 - DIMENSIONAMENTO E ANÁLISE DE GERAÇÃO</h1>
+            <h1 id="main-title">DIMENSIONAMENTO E ANÁLISE DE GERAÇÃO</h1>
 
+            <!-- Sessão para determinar a Potência do Sistema -->
             <div class="potencia-sistema" id="potencia-sistema-section">
                 <h2>POTÊNCIA SISTEMA PROPOSTO:</h2>
                 <div class="potencia-input">
@@ -26,6 +28,7 @@
                 </div>
             </div>
             
+            <!-- Sessão para Determinar os Valores da Premissas -->
             <div id="premissas-uc-section">
                 <h2>PREMISSAS UC</h2>
                 <table id="premissas-table">
@@ -51,6 +54,8 @@
                     </tr>
                 </table>
             </div>
+
+            <!-- Tabela de Despesas Com a Energia Elétrica (Dados inseridos pelo JS) -->
             <div class="expenses-section" id="energy-expenses-section">
                 <h2>DESPESA COM ENERGIA ELÉTRICA (SUBLIMADES/CS) (1° ANO)</h2>
                 <table id="expenses-table">
@@ -69,6 +74,7 @@
                 </table>
             </div>
 
+            <!-- Tabela de Balanço Energético Estimado (Dados inseridos pelo JS) -->
             <div class="expenses-section" id="energy-expenses-section">
                 <h2>BALANÇO ENERGÉTICO ESTIMADO</h2>
                 <table id="expenses-table">
@@ -83,6 +89,8 @@
                 </table>
             </div>
             
+            <!-- Tabela Mês a Mês de Balanço Energético (Dados inseridos pelo usuario e retornado pelo JS) -->
+            <!-- Todos os 2 Primeiros Dados da Tabela é necessario o Usuario Inserir os demais são retornado pela Calculadora (Não Alterar os ID) -->
             <div id="balanco-energetico-section">
                 <h2>BALANÇO ENERGÉTICO (kWh)</h2>
                 <table id="energy-balance-table">
@@ -206,6 +214,7 @@
                             <td id="M29"><p id="M29">0</p></td>
                             <td id="N29"><p id="N29">0</p></td>
                         </tr>
+                        <!-- Sessão de Valores Totais dos Dados da Tabela -->
                         <tr>
                             <td>Total</td>
                             <td id="totalI-cell"><p id="totalI">0</p></td>
