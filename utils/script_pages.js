@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/components/header.html')
+    fetch('components/header.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/components/footer.html')
+    fetch('components/footer.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/pages/calculator_power.html')
+    fetch('pages/calculator_power.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/pages/calculator_savings.html')
+    fetch('pages/calculator_savings.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/pages/about.html')
+    fetch('pages/about.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -168,14 +168,3 @@ document.addEventListener('DOMContentLoaded', function() {
         // Por exemplo: menus dropdown, eventos de clique, etc.
     }
 });
-
-
-fetch('about.html')
-.then(response => response.text())
-.then(data => {
-    document.getElementById('sobre-container').innerHTML = data;
-})
-.catch(error => console.error('Erro ao carregar o footer:', error));
-
-
-
