@@ -1,5 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('components/header.html')
+    fetch('index.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            const headerContainer = document.getElementById('header-container');
+            if (headerContainer) {
+                headerContainer.innerHTML = html;
+                
+                // Inicializa qualquer script necessário do header após carregar
+                initHeaderScripts();
+            } else {
+                console.error('Elemento header-container não encontrado no DOM');
+            }
+        })
+        .catch(error => {
+            console.error('Falha ao carregar o header:', error);
+            // Opcional: Mostrar mensagem de fallback para o usuário
+            const headerContainer = document.getElementById('header-container');
+            if (headerContainer) {
+                headerContainer.innerHTML = '<p>Menu de navegação indisponível</p>';
+            }
+        });
+
+    function initHeaderScripts() {
+        // Adicione aqui qualquer inicialização necessária para scripts do header
+        // Por exemplo: menus dropdown, eventos de clique, etc.
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/components/header.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -34,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('components/footer.html')
+    fetch('/components/footer.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -42,9 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         })
         .then(html => {
-            const headerContainer = document.getElementById('footer-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = html;
+            const footerContainer = document.getElementById('footer-container');
+            if (footerContainer) {
+                footerContainer.innerHTML = html;
                 
                 // Inicializa qualquer script necessário do header após carregar
                 initHeaderScripts();
@@ -55,9 +89,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Falha ao carregar o header:', error);
             // Opcional: Mostrar mensagem de fallback para o usuário
-            const headerContainer = document.getElementById('footer-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = '<p>Menu de navegação indisponível</p>';
+            const footerContainer = document.getElementById('footer-container');
+            if (footerContainer) {
+                footerContainer.innerHTML = '<p>Menu de navegação indisponível</p>';
             }
         });
 
@@ -68,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('pages/calculator_power.html')
+    fetch('/pages/calculator_power.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -76,9 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         })
         .then(html => {
-            const headerContainer = document.getElementById('calculadora-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = html;
+            const calculadoraContainer = document.getElementById('calculadora-container');
+            if (calculadoraContainer) {
+                calculadoraContainer.innerHTML = html;
                 
                 // Inicializa qualquer script necessário do header após carregar
                 initHeaderScripts();
@@ -89,9 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Falha ao carregar o header:', error);
             // Opcional: Mostrar mensagem de fallback para o usuário
-            const headerContainer = document.getElementById('calculadora-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = '<p>Menu de navegação indisponível</p>';
+            const calculadoraContainer = document.getElementById('calculadora-container');
+            if (calculadoraContainer) {
+                calculadoraContainer.innerHTML = '<p>Menu de navegação indisponível</p>';
             }
         });
 
@@ -102,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('pages/calculator_savings.html')
+    fetch('/pages/calculator_savings.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -110,9 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         })
         .then(html => {
-            const headerContainer = document.getElementById('calculadora2-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = html;
+            const calculadora2Container = document.getElementById('calculadora2-container');
+            if (calculadora2Container) {
+                calculadora2Container.innerHTML = html;
                 
                 // Inicializa qualquer script necessário do header após carregar
                 initHeaderScripts();
@@ -123,9 +157,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Falha ao carregar o header:', error);
             // Opcional: Mostrar mensagem de fallback para o usuário
-            const headerContainer = document.getElementById('calculadora2-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = '<p>Menu de navegação indisponível</p>';
+            const calculadora2Container = document.getElementById('calculadora2-container');
+            if (calculadora2Container) {
+                calculadora2Container.innerHTML = '<p>Menu de navegação indisponível</p>';
             }
         });
 
@@ -136,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('pages/about.html')
+    fetch('/pages/about.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -144,9 +178,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         })
         .then(html => {
-            const headerContainer = document.getElementById('sobre-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = html;
+            const sobreContainer = document.getElementById('sobre-container');
+            if (sobreContainer) {
+                sobreContainer.innerHTML = html;
                 
                 // Inicializa qualquer script necessário do header após carregar
                 initHeaderScripts();
@@ -157,9 +191,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Falha ao carregar o header:', error);
             // Opcional: Mostrar mensagem de fallback para o usuário
-            const headerContainer = document.getElementById('sobre-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = '<p>Menu de navegação indisponível</p>';
+            const sobreContainer = document.getElementById('sobre-container');
+            if (sobreContainer) {
+                sobreContainer.innerHTML = '<p>Menu de navegação indisponível</p>';
             }
         });
 
