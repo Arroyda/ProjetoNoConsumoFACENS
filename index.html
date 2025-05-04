@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>No Consume Facens</title>
-    <link rel="icon" type="image/png" href="/assets/logo.png">
-    <link rel="stylesheet" href="/styles/style.css"> 
-    <script src="/utils/script_pages.js" defer></script>
-</head>
-<body>
-    <!-- Puxa o Header pelo JavaScript -->
-    <div id="header-container"></div>
-    
-    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>No Consume Facens</title>
+        <link rel="icon" type="image/png" href="/assets/logo.png">
+        <link rel="stylesheet" href="/styles/style.css">
+        <script src="/utils/script_pages.js" defer></script>
+        <script src="/utils/script_carrousel.js"></script>
+    </head>
+    <body>
+        <body class="main-page">
+            <!-- Puxa o Header pelo JavaScript -->
+            <div id="header-container"></div>
+            <div class="carousel">
+                <div class="carousel-images" id="carouselImages">
+                    <img src="/assets/imagem1.jpg" alt="Imagem 1">
+                    <img src="/assets/imagem2.jpg" alt="Imagem 2">
+                    <img src="/assets/imagem3.jpg" alt="Imagem 3">
+                    <img src="/assets/imagem4.jpg" alt="Imagem 4">
+                </div>
+                <div class="carousel-buttons">
+                    <button onclick="prevImage()">⟨</button>
+                    <button onclick="nextImage()">⟩</button>
+                </div>
+            </div>
 
-    <!-- Puxa o Footer pelo JavaScript -->
-    <div id="footer-container"></div>
-</body>
+            <!-- Puxa o Footer pelo JavaScript -->
+            <div id="footer-container"></div>
+        </body>
+    </body>
 </html>
