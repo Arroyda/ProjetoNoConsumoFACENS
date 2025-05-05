@@ -7,54 +7,79 @@
 }
 
 /* Header */
-.menuTopo {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-    background-color: #f0f0f0;
-}
-
 .menuTopo .container {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     background-color: #f0f0f0;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 1rem;
+    padding: 1.25rem 1rem;
 }
 
-.menuTopo .container img {
-    max-height: 5rem;
-    width: auto;
-    margin: 0 auto;
-}
-
-.menuTopo .container ul {
+.menuTopo ul {
     display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 1rem auto auto auto;
+    gap: 2rem;
+    margin: 0;
     padding: 0;
-    justify-content: center;
+    list-style: none;
+    text-align: center;
+    align-items: center;
 }
 
-.menuTopo .container li {
-    padding: 0.8rem ;
-    background-color: rgb(226, 226, 226);
-    border: 1px rgb(0, 0, 0) solid;
-    margin: 0.5rem;
-    border-radius: 15px;
-    text-align: center;
-    min-width: 150px;
+.menuTopo li {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
 }
 
 .menuTopo a {
-    text-decoration: none;
-    color: black;
+    position: relative;
+    color: #333;
     font-weight: bold;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    transition: color 0.2s;
+}
+.menuTopo a:hover {
+    color: #02498e;
 }
 
-.menuTopo a:hover {
-    text-decoration: underline;
+.menuTopo a.active{
+    color: #02498e;
+}
+
+
+.menuTopo a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    width: 100%;
+    height: 3px;
+    background: #02498e;
+}
+
+.menuTopo a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    width: 100%;
+    height: 3px;
+    background: #02498e;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease-out;
+}
+
+.menuTopo a:hover::after,
+.menuTopo a.active::after {
+    transform: scaleX(1);
+}
+
+.menuTopo .container img {
+    max-height: 3rem;
+    width: auto;
 }
 
 /* footer */
@@ -136,7 +161,8 @@
     display: block;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #888;
     padding: 10px;
     text-align: left;
@@ -230,7 +256,8 @@ th {
     padding: 0;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
@@ -246,14 +273,14 @@ body::-webkit-scrollbar {
 
 .carousel {
     width: 100vw;
-    aspect-ratio: 16 / 9; /* Mantém proporção 1280x720 */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     position: relative;
 }
 
 .carousel-images {
     display: flex;
-    width: 400vw; /* 4 imagens lado a lado */
+    width: 400vw;
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
@@ -298,21 +325,185 @@ body::-webkit-scrollbar {
     min-width: 800px;
 }
 
+/* tabela */
+
+button {
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #2980b9;
+}
+
+.container-dimensionamento {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 2%;
+
+    h1 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 30px;
+    }
+    .potencia-section {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .potencia-input {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .potencia-input input {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .benefits-section,
+    .expenses-section {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    .highlight {
+        font-weight: bold;
+        color: #e74c3c;
+    }
+
+    #premissas-table {
+        width: 100%;
+    }
+
+    #premissas-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    #premissas-table input[type="number"] {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        -moz-appearance: textfield;
+    }
+
+    #premissas-table input[type="number"]::-webkit-outer-spin-button,
+    #premissas-table input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    #premissas-table input[type="number"]:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    }
+
+    #premissas-table tr td:first-child {
+        width: 50%;
+        font-weight: bold;
+        background-color: #f8f9fa;
+    }
+
+    /* Estilo para a tabela */
+    #energy-balance-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #energy-balance-table th,
+    #energy-balance-table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    #energy-balance-table th {
+        background-color: #f2f2f2;
+    }
+
+    /* Estilo para os inputs */
+    .energy-input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 14px;
+        -moz-appearance: textfield;
+    }
+
+    .energy-input::-webkit-outer-spin-button,
+    .energy-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .energy-input:focus {
+        outline: none;
+        border-color: #66afe9;
+        box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+
+    /* Estilo especial para campos monetários */
+    .energy-input.currency {
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+
+    input:focus::placeholder {
+        color: transparent;
+    }
+}
+
 /* Responsividade */
 @media (min-width: 768px) {
     .container-economia {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .menuTopo .container ul {
         margin-left: auto;
         margin-top: 0;
     }
-    
+
     .menuTopo .container li {
         width: 180px;
     }
-    
+
     .carousel {
         aspect-ratio: 16 / 9;
     }
@@ -323,17 +514,17 @@ body::-webkit-scrollbar {
         width: 95%;
         padding: 1rem;
     }
-    
+
     .menuTopo .container li {
         width: 100%;
         margin: 0.3rem 0;
     }
-    
+
     .carousel-buttons button {
         padding: 6px 12px;
         font-size: 16px;
     }
-    
+
     .container-economia .input-section h2 {
         font-size: 1.2rem;
     }
