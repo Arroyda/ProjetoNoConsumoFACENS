@@ -1,4 +1,3 @@
-/* reset de margem da pagina */
 * {
     margin: 0;
     padding: 0;
@@ -7,57 +6,82 @@
 }
 
 /* Header */
-.menuTopo {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-    background-color: #f0f0f0;
-}
-
 .menuTopo .container {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     background-color: #f0f0f0;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 1rem;
+    padding: 1.25rem 1rem;
 }
 
-.menuTopo .container img {
-    max-height: 5rem;
-    width: auto;
-    margin: 0 auto;
-}
-
-.menuTopo .container ul {
+.menuTopo ul {
     display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 1rem auto auto auto;
+    gap: 2rem;
+    margin: 0;
     padding: 0;
-    justify-content: center;
+    list-style: none;
+    text-align: center;
+    align-items: center;
 }
 
-.menuTopo .container li {
-    padding: 0.8rem;
-    background-color: rgb(226, 226, 226);
-    border: 1px rgb(0, 0, 0) solid;
-    margin: 0.5rem;
-    border-radius: 15px;
-    text-align: center;
-    min-width: 150px;
+.menuTopo li {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
 }
 
 .menuTopo a {
-    text-decoration: none;
-    color: black;
+    position: relative;
+    color: #333;
     font-weight: bold;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    transition: color 0.2s;
 }
 
 .menuTopo a:hover {
-    text-decoration: underline;
+    color: #02498e;
 }
 
-/* footer */
+.menuTopo a.active {
+    color: #02498e;
+}
+
+.menuTopo a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    width: 100%;
+    height: 3px;
+    background: #02498e;
+}
+
+.menuTopo a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    width: 100%;
+    height: 3px;
+    background: #02498e;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease-out;
+}
+
+.menuTopo a:hover::after,
+.menuTopo a.active::after {
+    transform: scaleX(1);
+}
+
+.menuTopo .container img {
+    max-height: 3rem;
+    width: auto;
+}
+
+/* Footer */
 .menuBaixo {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -224,38 +248,17 @@ th {
     font-size: 1.2rem;
 }
 
-/* Carrousel */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-    display: none;
-}
-
+/* Carousel */
 .carousel {
     width: 100vw;
-    aspect-ratio: 16 / 9; /* Mantém proporção 1280x720 */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     position: relative;
 }
 
 .carousel-images {
     display: flex;
-    width: 400vw; /* 4 imagens lado a lado */
+    width: 400vw;
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
@@ -289,179 +292,167 @@ body::-webkit-scrollbar {
     border-radius: 50%;
 }
 
-/* Tabelas responsivas */
-.table-wrapper {
-    overflow-x: auto;
+/* Dimensionamento Solar */
+.container-dimensionamento {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+#main-title {
+    color: #2c3e50;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #3498db;
+}
+
+.potencia-sistema,
+#premissas-uc-section,
+.expenses-section,
+#balanco-energetico-section {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s ease;
+}
+
+.potencia-sistema:hover,
+#premissas-uc-section:hover,
+.expenses-section:hover {
+    transform: translateY(-3px);
+}
+
+.potencia-input {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.potencia-input input {
+    padding: 0.8rem;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    width: 150px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease;
+}
+
+.potencia-input input:focus {
+    border-color: #2980b9;
+    outline: none;
+}
+
+#calculate-power-btn {
+    background: #3498db;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#calculate-power-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Tabelas */
+#premissas-table {
     width: 100%;
-    margin: 1rem 0;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+}
+
+#premissas-table tr td:first-child {
+    background: #e8f4fc;
+    border-radius: 8px 0 0 8px;
+}
+
+#premissas-table tr td:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+#premissas-table td {
+    padding: 1rem;
+    background: white;
+    border: 1px solid #e0e0e0;
 }
 
 #energy-balance-table {
-    min-width: 800px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* tabela */
-
-button {
-    padding: 8px 15px;
-    background-color: #3498db;
+#energy-balance-table th {
+    background: #2c3e50;
     color: white;
+    padding: 1rem;
+    font-weight: 600;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #2980b9;
 }
 
-.container-dimensionamento {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-top: 2%;
+#energy-balance-table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #eee;
+    background: white;
+}
 
-    h1 {
-        color: #2c3e50;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 10px;
-    }
-    h2 {
-        color: #2980b9;
-        margin-top: 30px;
-    }
-    .potencia-section {
-        background-color: #f8f9fa;
-        padding: 15px;
-        border-radius: 5px;
-        margin-bottom: 20px;
-    }
-    .potencia-input {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .potencia-input input {
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        width: 100px;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-    }
-    th,
-    td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    .benefits-section,
-    .expenses-section {
-        background-color: #f9f9f9;
-        padding: 15px;
-        border-radius: 5px;
-        margin-top: 20px;
-    }
-    .highlight {
-        font-weight: bold;
-        color: #e74c3c;
-    }
+#energy-balance-table tr:last-child td {
+    border-bottom: none;
+    background: #f8f9fa;
+    font-weight: bold;
+}
 
-    #premissas-table {
-        width: 100%;
-    }
+.highlight {
+    align-content: right;
+    background: #f8f9fa;
+    color: var(--highlight);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 0 8px 8px 0;
+    border: none;
+    border-left: 3px solid var(--highlight);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1;
+}
 
-    #premissas-table td {
-        padding: 10px;
-        border: 1px solid #ddd;
-    }
+#balanco-energetico-section table {
+    width: 100%;
+}
+#balanco-energetico-section td:last-child {
+    text-align: right;
+}
 
-    #premissas-table input[type="number"] {
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 14px;
-        -moz-appearance: textfield; /* Remove setas Firefox */
-    }
+.energy-input {
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
 
-    #premissas-table input[type="number"]::-webkit-outer-spin-button,
-    #premissas-table input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none; /* Remove setas Chrome/Safari/Edge */
-        margin: 0;
-    }
-
-    #premissas-table input[type="number"]:focus {
-        outline: none;
-        border-color: #3498db;
-        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-    }
-
-    #premissas-table tr td:first-child {
-        width: 50%;
-        font-weight: bold;
-        background-color: #f8f9fa;
-    }
-
-    /* Estilo para a tabela */
-    #energy-balance-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    #energy-balance-table th,
-    #energy-balance-table td {
-        padding: 8px;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
-
-    #energy-balance-table th {
-        background-color: #f2f2f2;
-    }
-
-    /* Estilo para os inputs */
-    .energy-input {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 6px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        text-align: center;
-        font-size: 14px;
-        -moz-appearance: textfield;
-    }
-
-    .energy-input::-webkit-outer-spin-button,
-    .energy-input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    .energy-input:focus {
-        outline: none;
-        border-color: #66afe9;
-        box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
-    }
-
-    /* Estilo especial para campos monetários */
-    .energy-input.currency {
-        background-color: #f9f9f9;
-        font-weight: bold;
-    }
-
-    input:focus::placeholder {
-        color: transparent;
-    }
+.energy-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
 }
 
 /* Responsividade */
@@ -481,6 +472,25 @@ button:hover {
 
     .carousel {
         aspect-ratio: 16 / 9;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-dimensionamento {
+        padding: 1.5rem;
+    }
+
+    .potencia-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #calculate-power-btn {
+        width: 100%;
+    }
+
+    #energy-balance-table {
+        font-size: 0.9rem;
     }
 }
 
@@ -505,13 +515,12 @@ button:hover {
     }
 }
 
-/* Imagens responsivas */
+/* Geral */
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* Layout geral */
 body.main-page {
     display: flex;
     flex-direction: column;
