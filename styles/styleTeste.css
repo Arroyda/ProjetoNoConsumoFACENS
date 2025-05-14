@@ -39,14 +39,14 @@
     padding: 0.25rem 0;
     transition: color 0.2s;
 }
-
 .menuTopo a:hover {
     color: #02498e;
 }
 
-.menuTopo a.active {
+.menuTopo a.active{
     color: #02498e;
 }
+
 
 .menuTopo a.active::after {
     content: "";
@@ -165,7 +165,7 @@ td {
     border: 1px solid #888;
     padding: 10px;
     text-align: left;
-    border-radius: 10px;
+    
 }
 
 th {
@@ -176,6 +176,10 @@ th {
     --primary: #2c3e50;
     --secondary: #18bc9c;
     --highlight: #e74c3c;
+}
+
+sub{
+    font-size:  small;
 }
 
 .container-economia {
@@ -392,25 +396,21 @@ th {
 }
 
 #energy-balance-table {
-    border-collapse: separate;
-    border-spacing: 0;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.05);
+  border-collapse: collapse;
+  border: 2px solid #2c3e50;
+  border-radius: 10px;
+  overflow: hidden;  
 }
 
 #energy-balance-table th {
-    background: #2c3e50;
-    color: white;
-    padding: 1rem;
-    font-weight: 600;
-    border: none;
+  background: #2c3e50;
+  color: white;
+  border: none; 
 }
 
 #energy-balance-table td {
     padding: 0.8rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 0px solid #eee;
     background: white;
 }
 
@@ -418,6 +418,11 @@ th {
     border-bottom: none;
     background: #f8f9fa;
     font-weight: bold;
+}
+
+.lado{
+    display: flex;
+    justify-content: space-between;
 }
 
 .highlight {
