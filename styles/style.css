@@ -1,9 +1,12 @@
-/* reset de margem da pagina */
 * {
     margin: 0;
     padding: 0;
     font-family: Arial;
     box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -44,10 +47,9 @@
     color: #02498e;
 }
 
-.menuTopo a.active{
+.menuTopo a.active {
     color: #02498e;
 }
-
 
 .menuTopo a.active::after {
     content: "";
@@ -82,7 +84,7 @@
     width: auto;
 }
 
-/* footer */
+/* Footer */
 .menuBaixo {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -166,7 +168,6 @@ td {
     border: 1px solid #888;
     padding: 10px;
     text-align: left;
-    border-radius: 10px;
 }
 
 th {
@@ -177,6 +178,10 @@ th {
     --primary: #2c3e50;
     --secondary: #18bc9c;
     --highlight: #e74c3c;
+}
+
+sub {
+    font-size: small;
 }
 
 .container-economia {
@@ -249,30 +254,10 @@ th {
     font-size: 1.2rem;
 }
 
-/* Carrousel */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-    display: none;
-}
-
+/* Carousel */
 .carousel {
     width: 100vw;
+    height: 400px;
     aspect-ratio: 16 / 9;
     overflow: hidden;
     position: relative;
@@ -314,179 +299,226 @@ body::-webkit-scrollbar {
     border-radius: 50%;
 }
 
-/* Tabelas responsivas */
-.table-wrapper {
-    overflow-x: auto;
+/* Dimensionamento Solar */
+.container-dimensionamento {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+#main-title {
+    color: #2c3e50;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #3498db;
+}
+
+.potencia-sistema,
+#premissas-uc-section,
+.expenses-section,
+#balanco-energetico-section {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s ease;
+}
+
+.potencia-sistema:hover,
+#premissas-uc-section:hover,
+.expenses-section:hover {
+    transform: translateY(-3px);
+}
+
+.potencia-input {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.potencia-input input {
+    padding: 0.8rem;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    width: 150px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease;
+}
+
+.potencia-input input:focus {
+    border-color: #2980b9;
+    outline: none;
+}
+
+#calculate-power-btn {
+    background: #3498db;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#calculate-power-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Tabelas */
+#premissas-table {
     width: 100%;
-    margin: 1rem 0;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+}
+
+#premissas-table tr td:first-child {
+    background: #e8f4fc;
+    border-radius: 8px 0 0 8px;
+}
+
+#premissas-table tr td:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+#premissas-table td {
+    padding: 1rem;
+    background: white;
+    border: 1px solid #e0e0e0;
 }
 
 #energy-balance-table {
-    min-width: 800px;
+    border-collapse: collapse;
+    border: 2px solid #2c3e50;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-/* tabela */
-
-button {
-    padding: 8px 15px;
-    background-color: #3498db;
+#energy-balance-table th {
+    background: #2c3e50;
     color: white;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #2980b9;
 }
 
-.container-dimensionamento {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-top: 2%;
+#energy-balance-table td {
+    padding: 0.8rem;
+    border-bottom: 0px solid #eee;
+    background: white;
+}
 
-    h1 {
-        color: #2c3e50;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 10px;
-    }
-    h2 {
-        color: #2980b9;
-        margin-top: 30px;
-    }
-    .potencia-section {
-        background-color: #f8f9fa;
-        padding: 15px;
-        border-radius: 5px;
-        margin-bottom: 20px;
-    }
-    .potencia-input {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .potencia-input input {
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        width: 100px;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-    }
-    th,
-    td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    .benefits-section,
-    .expenses-section {
-        background-color: #f9f9f9;
-        padding: 15px;
-        border-radius: 5px;
-        margin-top: 20px;
-    }
-    .highlight {
-        font-weight: bold;
-        color: #e74c3c;
-    }
+#energy-balance-table tr:last-child td {
+    border-bottom: none;
+    background: #f8f9fa;
+    font-weight: bold;
+}
 
-    #premissas-table {
-        width: 100%;
-    }
+.lado {
+    display: flex;
+    justify-content: space-between;
+}
 
-    #premissas-table td {
-        padding: 10px;
-        border: 1px solid #ddd;
-    }
+.highlight {
+    align-content: right;
+    background: #f8f9fa;
+    color: var(--highlight);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 0 8px 8px 0;
+    border: none;
+    border-left: 3px solid var(--highlight);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1;
+}
 
-    #premissas-table input[type="number"] {
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 14px;
-        -moz-appearance: textfield;
-    }
+#balanco-energetico-section table {
+    width: 100%;
+}
+#balanco-energetico-section td:last-child {
+    text-align: right;
+}
 
-    #premissas-table input[type="number"]::-webkit-outer-spin-button,
-    #premissas-table input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+.energy-input {
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
 
-    #premissas-table input[type="number"]:focus {
-        outline: none;
-        border-color: #3498db;
-        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-    }
+.energy-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
 
-    #premissas-table tr td:first-child {
-        width: 50%;
-        font-weight: bold;
-        background-color: #f8f9fa;
-    }
+.indexSobre {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1.25rem;
+}
 
-    /* Estilo para a tabela */
-    #energy-balance-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+.bemvindo {
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #02498e;
+    margin: 1.5rem auto;
+    text-align: center;
+}
 
-    #energy-balance-table th,
-    #energy-balance-table td {
-        padding: 8px;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
+.subtitulo {
+    font-size: 1.75rem;
+    font-weight: bolder;
+    color: #02498e;
+    margin: 1rem auto 2rem;
+    text-align: center;
+}
 
-    #energy-balance-table th {
-        background-color: #f2f2f2;
-    }
+.resumo,
+.calcResumo,
+.calcSavings {
+    font-size: 1rem;
+    max-width: 90%;
+    margin: 0.75rem auto;
+    color: white;
+}
 
-    /* Estilo para os inputs */
-    .energy-input {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 6px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        text-align: center;
-        font-size: 14px;
-        -moz-appearance: textfield;
-    }
+.indexSobre li {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: white;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.75rem;
+}
 
-    .energy-input::-webkit-outer-spin-button,
-    .energy-input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+.indexSobre li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 
-    .energy-input:focus {
-        outline: none;
-        border-color: #66afe9;
-        box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
-    }
-
-    /* Estilo especial para campos monetários */
-    .energy-input.currency {
-        background-color: #f9f9f9;
-        font-weight: bold;
-    }
-
-    input:focus::placeholder {
-        color: transparent;
-    }
+#boxIndex {
+    background-color: #02498e;
+    padding: 1.5rem;
+    margin: 1.5rem 1rem;
+    border-radius: 5%/7%;
+    box-shadow: 3px 3px 10px 3px #535375;
 }
 
 /* Responsividade */
@@ -506,6 +538,25 @@ button:hover {
 
     .carousel {
         aspect-ratio: 16 / 9;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-dimensionamento {
+        padding: 1.5rem;
+    }
+
+    .potencia-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #calculate-power-btn {
+        width: 100%;
+    }
+
+    #energy-balance-table {
+        font-size: 0.9rem;
     }
 }
 
@@ -530,16 +581,80 @@ button:hover {
     }
 }
 
-/* Imagens responsivas */
+@media (min-width: 768px) {
+    .bemvindo {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .subtitulo {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .resumo,
+    .calcResumo,
+    .calcSavings {
+        font-size: 1.125rem;
+        max-width: 60%;
+    }
+
+    .calcSavings {
+        margin-right: 3rem;
+    }
+
+    .indexSobre li {
+        flex-direction: row;
+        font-size: 1.125rem;
+        align-items: flex-start;
+    }
+
+    #boxIndex {
+        padding: 2rem;
+        margin: 2rem auto;
+        max-width: 90%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .bemvindo {
+        font-size: 3rem;
+        margin-top: 2.5rem;
+    }
+
+    .subtitulo {
+        font-size: 2.25rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .resumo,
+    .calcResumo,
+    .calcSavings {
+        font-size: 1.25rem;
+        max-width: 30%;
+        margin: 0 3rem;
+    }
+
+    .indexSobre li {
+        font-size: 1.25rem;
+    }
+
+    #boxIndex {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        max-width: 30%;
+    }
+}
+
+/* Geral */
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* Layout geral */
 body.main-page {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #2c3e50;
+    background-color: #ffffff;
 }
